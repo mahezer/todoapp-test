@@ -8,5 +8,5 @@
     "transpileOnly": true,
     "files": true,
   },
-  "include": ["./src/**/*"]
+  "include": ["index.ts", "./src/**/*"]
 }
