@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es5"
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+  },
+  "include": ["index.ts", "./src/**/*"]
+}
