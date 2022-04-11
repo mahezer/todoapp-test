@@ -8,7 +8,10 @@ export function isValidPassword(password: string, attemptedPassword: Buffer) {
 export function authMiddleware(req, res, next) {
     const { authorization } = req.headers;
     if (!authorization) {
-        return res.status(401).send()
+        return res.status(401).send({
+            status: 401,
+            message: 'Unauthorized'
+        })
     }
 
     const token = authorization.split(' ')[1];
@@ -16,7 +19,6 @@ export function authMiddleware(req, res, next) {
         verify(token, process.env.JWT_SECRET);
         next();
     } catch(err) {
-        console.log(err)
         return res.status(401).send()
     }
 }
