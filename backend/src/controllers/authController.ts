@@ -9,7 +9,6 @@ router.post('/signup', async (req, res) => {
     const newUser = new User(null, req.body.username, req.body.password, []);
     UserModel.create(newUser, async (error, result) => {
         if (error) {
-            console.log(error)
             return res.status(500).send(error)
         }
         return res.status(204).send();

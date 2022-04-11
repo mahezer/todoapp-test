@@ -8,7 +8,6 @@ const router = expressRouter();
 router.get('/', async (req, res) => {
     const user = await getUserFromToken(req.headers.authorization);
     const fullUser = await UserModel.findById(user._id).populate('projects');
-    console.log(fullUser)
     const { projects } = fullUser;
     res.send(projects)
 })
